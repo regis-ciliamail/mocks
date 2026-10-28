@@ -1,0 +1,36 @@
+{
+  "name": "api-node",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API mock do GERE em Node.js, com OpenAPI e Swagger UI, e seeds determinísticos",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "imports": {
+    "#shared/*": "./src/shared/*.ts",
+    "#seed/*": "./src/seed/*.ts",
+    "#domains/*": "./src/domains/*.ts"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "openapi": "tsx scripts/export-openapi.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@fastify/swagger": "^9.9.2",
+    "@fastify/swagger-ui": "^6.1.2",
+    "fastify": "^5.12.7",
+    "fastify-type-provider-zod": "^7.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
